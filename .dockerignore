@@ -5,6 +5,7 @@
 # Project files
 *.txt
 *.png
+*.pdf
 output
 
 # OS files

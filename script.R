@@ -4,6 +4,11 @@ suppressMessages(library(tidyr))
 suppressMessages(library(dplyr))
 suppressMessages(library(ggplot2))
 suppressMessages(library(svglite))
+suppressMessages(library(tokenizers))
+suppressMessages(library(stopwords))
+suppressMessages(library(wordcloud))
+suppressMessages(library(RColorBrewer))
+
 
 pattern = '^(\\d\\d\\/\\d\\d\\/\\d\\d), (\\d?\\d:\\d\\d ..) - (.+?): (.*)$'
 args = commandArgs(trailingOnly = TRUE)
@@ -58,9 +63,31 @@ chat$time = format(strptime(chat$time, "%I:%M %p"), format="%H:%M")
 chat$date = as.Date(chat$date, format="%d/%m/%y")
 chat$sender = factor(chat$sender)
 
+# Tokenize texts
+chat$tokens = tokenize_words(chat$text, stopwords = stopwords::stopwords("en"))
+
 ################################################################################
 # EXPLORATORY ANALYSIS
 ################################################################################
+
+# Chat Tokens
+chat_tokens_sender = chat %>% 
+  unnest(tokens) %>% 
+  select(sender, token = tokens) %>%
+  group_by(sender, token) %>%
+  summarise(count = length(token)) %>%
+  filter(!is.na(token), nchar(token) > 5, !grepl('[0-9]', substr(token, 0, 1)), count > 10) %>%
+  filter(token != "omitted")
+
+chat_tokens = chat_tokens_sender %>%
+  group_by(token) %>%
+  summarise(count = sum(count))
+
+chat_wordcloud = wordcloud(words = chat_tokens$token, 
+                           freq = chat_tokens$count, 
+                           random.order=FALSE, 
+                           rot.per=0.35,            
+                           colors=brewer.pal(8, "Dark2"))
 
 # Group By Sender
 chat_group_sender = chat %>%
