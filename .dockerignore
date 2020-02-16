@@ -1,0 +1,7 @@
+# R files
+.RData
+.Rhistory
+
+# Project files
+*.txt
+*.png
