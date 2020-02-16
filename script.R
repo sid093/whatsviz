@@ -51,19 +51,31 @@ chat = extract(chat, raw, into = c("date", "time", "sender", "text"), regex = pa
 # Convert 12HR scheme to 24HR
 chat$time = format(strptime(chat$time, "%I:%M %p"), format="%H:%M")
 
-chat$date = as.Date(chat$date, format="%m/%d/%y")
+chat$date = as.Date(chat$date, format="%d/%m/%y")
 chat$sender = factor(chat$sender)
 
 ################################################################################
 # EXPLORATORY ANALYSIS
 ################################################################################
 
-printlog('Generating Sender Statistics')
-plot1_sender_stats = chat %>%
+# Group By Sender
+chat_group_sender = chat %>%
   group_by(sender) %>% 
   summarise(messages = length(sender)) %>% 
+  arrange(messages) %>%
   mutate(percentage = 100 * messages/sum(messages)) %>%
-  mutate(label = paste0(messages, " (", format(round(percentage, 2), nsmall = 2),"%)")) %>%
+  mutate(label = paste0(messages, " (", format(round(percentage, 2), nsmall = 2),"%)"))
+
+# Timeline By Sender
+chat_timeline_sender = chat %>% 
+  group_by(date, sender) %>% 
+  summarise(messages = length(sender)) %>%
+  arrange(messages) %>%
+  mutate(percentage_of_day = 100 * messages/sum(messages)) %>%
+  drop_na(date)
+
+printlog('Generating Sender Statistics')
+plot1_sender_stats = chat_group_sender %>%
   ggplot(aes(y = messages, x = sender, label = label)) + 
     geom_bar(stat = "identity", fill = CONFIG_PRIMARY_COLOR) + 
     geom_text(size = 3, position = position_stack(vjust = 0.5)) +
@@ -72,14 +84,18 @@ plot1_sender_stats = chat %>%
 saveplot(plot1_sender_stats)
 
 printlog('Generating Sender Timeline')
-plot2_sender_timeline = chat %>% 
-  group_by(sender, date) %>% 
-  summarise(messages = length(sender)) %>%
-  drop_na(date) %>%
+plot2_sender_timeline = chat_timeline_sender %>%
   ggplot(aes(x = date, y = messages, group = sender, color = sender)) + 
   geom_line() + 
   scale_x_date() +
   theme_opts
 saveplot(plot2_sender_timeline)
+
+printlog('Generating Sender Percentage Timline')
+plot3_sender_percentage_timeline = chat_timeline_sender %>% 
+  ggplot(aes(x = date, y = percentage_of_day, fill = sender)) + 
+  geom_bar(stat = "identity") +
+  theme_opts
+saveplot(plot3_sender_percentage_timeline)
 
 quit(save = 'yes')
