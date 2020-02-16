@@ -5,3 +5,6 @@
 # Project files
 *.txt
 *.png
+
+# OS files
+.DS_Store

@@ -1,3 +1,10 @@
+# R files
+.RData
+.Rhistory
+
 # Project files
 *.txt
 *.png
+
+# OS files
+.DS_Store
