@@ -12,6 +12,10 @@ if(length(args) != 1) {
   quit()
 } 
 
+# Create output directory
+setwd("/home/app")
+dir.create(file.path('/home/app', 'output'), showWarnings = FALSE)
+
 # Set Theme options for ggplot
 theme_opts = theme(axis.text.x = element_text(angle = 30, hjust = 1), 
                    panel.background = element_rect(fill = CONFIG_PANEL_BG_COLOR), 
