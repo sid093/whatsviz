@@ -9,6 +9,8 @@ suppressMessages(library(stopwords))
 suppressMessages(library(wordcloud))
 suppressMessages(library(RColorBrewer))
 
+# Allow plots to save as png directly
+pdf(NULL)
 
 pattern = '^(\\d\\d\\/\\d\\d\\/\\d\\d), (\\d?\\d:\\d\\d ..) - (.+?): (.*)$'
 args = commandArgs(trailingOnly = TRUE)
@@ -70,25 +72,6 @@ chat$tokens = tokenize_words(chat$text, stopwords = stopwords::stopwords("en"))
 # EXPLORATORY ANALYSIS
 ################################################################################
 
-# Chat Tokens
-chat_tokens_sender = chat %>% 
-  unnest(tokens) %>% 
-  select(sender, token = tokens) %>%
-  group_by(sender, token) %>%
-  summarise(count = length(token)) %>%
-  filter(!is.na(token), nchar(token) > 5, !grepl('[0-9]', substr(token, 0, 1)), count > 10) %>%
-  filter(token != "omitted")
-
-chat_tokens = chat_tokens_sender %>%
-  group_by(token) %>%
-  summarise(count = sum(count))
-
-chat_wordcloud = wordcloud(words = chat_tokens$token, 
-                           freq = chat_tokens$count, 
-                           random.order=FALSE, 
-                           rot.per=0.35,            
-                           colors=brewer.pal(8, "Dark2"))
-
 # Group By Sender
 chat_group_sender = chat %>%
   group_by(sender) %>% 
@@ -128,5 +111,27 @@ plot3_sender_percentage_timeline = chat_timeline_sender %>%
   geom_bar(stat = "identity") +
   theme_opts
 saveplot(plot3_sender_percentage_timeline)
+
+# Chat Tokens
+printlog('Generating Wordcloud')
+chat_tokens_sender = chat %>% 
+  unnest(tokens) %>% 
+  select(sender, token = tokens) %>%
+  group_by(sender, token) %>%
+  summarise(count = length(token)) %>%
+  filter(!is.na(token), nchar(token) > 5, !grepl('[0-9]', substr(token, 0, 1)), count > 10) %>%
+  filter(token != "omitted")
+
+chat_tokens = chat_tokens_sender %>%
+  group_by(token) %>%
+  summarise(count = sum(count))
+
+png(file='./output/plot4_wordlocud.png')
+wordcloud(words = chat_tokens$token, 
+          freq = chat_tokens$count, 
+          random.order=FALSE, 
+          rot.per=0.35,            
+          colors=brewer.pal(8, "Dark2"))
+invisible(dev.off())
 
 quit(save = 'yes')

@@ -7,5 +7,4 @@ printlog = function(text) {
 saveplot = function(plot) {
   filename = paste0('./output/', deparse(substitute(plot)), '.png')
   ggsave(filename = filename, plot = plot, height = 9, width = 16)
-  printlog(paste('Saved Sender Statistics to', filename))
 }
