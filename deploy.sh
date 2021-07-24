@@ -1,5 +1,6 @@
 # Check directories needed
 mkdir -p ~/app/whatsviz/data/input ~/app/whatsviz/data/output
+rm -r ~/app/whatsviz/data/input/*
 
 # Pull latest
 docker pull sid093/whatsviz
