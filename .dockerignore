@@ -2,11 +2,13 @@
 .RData
 .Rhistory
 
+# Node files
+node_modules
+npm-debug.log
+
 # Project files
-*.txt
-*.png
-*.pdf
-output
+data/input/*
+data/output/*
 
 # OS files
 .DS_Store

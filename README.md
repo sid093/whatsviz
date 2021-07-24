@@ -1,10 +1,8 @@
 # dataviz-whatsapp
-R based Data Visualization tool for WhatsApp chats
+Node application which uses R based Data Visualization tool for WhatsApp chat
 
 Usage -
 ```
-    docker build -t chat-analysis .
-    docker run -v ${PWD}:/home/app -e FILE=chat.txt chat-analysis
+    docker build . -t whatsviz
+    docker run -v ./data:/home/app/data -p 8000:8000 whatsviz
 ```
-
-Keep chat.txt in your Working Directory
