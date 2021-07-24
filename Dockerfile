@@ -24,5 +24,9 @@ RUN npm install
 # Copy project source code
 COPY src /home/app/src
 
+# Data volume
+RUN mkdir -p /home/app/data/input /home/app/data/output
+VOLUME [ "/home/app/data" ]
+
 # Start node server
-CMD [ "npm", "start" ]
+ENTRYPOINT [ "npm", "start" ]
