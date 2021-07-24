@@ -4,12 +4,7 @@ FROM node:16-alpine
 RUN apk add R
 
 # Install R libraries
-RUN Rscript -e "install.packages('svglite', repos='http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('tokenizers', repos='http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('stopwords', repos='http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('wordcloud', repos='http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('tidyr', repos='http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('dplyr', repos='http://cran.us.r-project.org')"
+RUN Rscript -e "install.packages(c('svglite', 'tokenizers', 'stopwords', 'tidyr', 'dplyr'), repos='http://cran.us.r-project.org')"
 
 # Node running port
 ENV PORT=8000
