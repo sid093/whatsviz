@@ -4,7 +4,7 @@ Node application which uses R based Data Visualization tool for WhatsApp chat
 Usage -
 ```
     docker build . -t whatsviz
-    docker run -p 8000:8000 -d --restart unless-stopped whatsviz
+    docker run -p 8000:8000 -d --restart unless-stopped --name whatsviz whatsviz
 ```
 
 One-Click run in Ubuntu 21.04

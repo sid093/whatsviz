@@ -6,8 +6,7 @@ rm -r ~/app/whatsviz/data/input/*
 docker pull sid093/whatsviz
 
 # Stop existing containers
-docker stop whatsviz
-docker rm whatsviz
+docker rm -f whatsviz
 
 # Start container in background
 docker run -p 8000:8000 -v ~/app/whatsviz/data:/home/app/data -d --restart unless-stopped --name whatsviz sid093/whatsviz

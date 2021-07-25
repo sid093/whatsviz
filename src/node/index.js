@@ -12,5 +12,8 @@ const app = express();
 app.all('/', (req, res) => res.sendStatus(200));
 app.use('/chat', chat);
 
-app.listen(PORT,);
+app.listen(PORT);
 console.log(`Running on port ${PORT}`);
+
+// start jobs
+require('./cron');
