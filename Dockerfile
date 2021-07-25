@@ -1,10 +1,9 @@
 FROM node:16-alpine
 
-# Install R
-RUN apk add R
-
-# Install R libraries
-RUN Rscript -e "install.packages(c('tokenizers', 'stopwords', 'tidyr', 'dplyr'), repos='http://cran.us.r-project.org')"
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
 
 # Node running port
 ENV PORT=8000
