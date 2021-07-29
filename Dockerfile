@@ -1,9 +1,7 @@
-FROM node:16-alpine
+FROM nikolaik/python-nodejs:python3.8-nodejs16-slim
 
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools pandas
+# Python dependencies
+RUN pip install --no-cache --upgrade pandas
 
 # Node running port
 ENV PORT=8000
