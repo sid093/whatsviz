@@ -22,4 +22,10 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: trigger remote deploy
-        run: echo Hello, world!
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: curl -s https://raw.githubusercontent.com/sid093/whatsviz/master/deploy.sh | bash /dev/stdin
