@@ -9,6 +9,7 @@ npm-debug.log
 # Project files
 data/input/*
 data/output/*
+test/*.txt
 
 # OS files
 .DS_Store

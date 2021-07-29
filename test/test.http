@@ -1,0 +1,21 @@
+@server = http://localhost:8000
+# @server = https://api.sidx.dev/whatsviz
+
+
+# Upload Chat file
+# @name upload
+POST {{server}}/chat
+Content-Type: multipart/form-data; boundary=----boundary
+
+------boundary
+Content-Disposition: form-data; name="file"; filename="chat.txt"
+Content-Type: text/plain
+
+< ./chat.txt
+------boundary--
+###
+
+# Get chat summary
+# @name summary
+GET {{server}}/chat/{{upload.response.body.*}}
+###
