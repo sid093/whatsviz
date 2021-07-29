@@ -13,4 +13,5 @@ jobs:
       - name: trigger remote deploy
         run: |
           echo "${{ secrets.SSH_KEY }}" > .ssh_id
+          chmod 400 .ssh_id
           ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }} -i .ssh_id 'curl -s https://raw.githubusercontent.com/sid093/whatsviz/master/deploy.sh | bash /dev/stdin'
