@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -10,8 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: trigger remote deploy
         run: |
+          cd ${{ github.workspace }}
           echo "${{ secrets.SSH_KEY }}" > .ssh_id
           chmod 400 .ssh_id
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }} -i .ssh_id 'curl -s https://raw.githubusercontent.com/sid093/whatsviz/master/deploy.sh | bash /dev/stdin'
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }} -i .ssh_id "bash -s" < ./deploy.sh
