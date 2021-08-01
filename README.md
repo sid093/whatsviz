@@ -9,7 +9,7 @@ Usage -
 
 One-Click run in Ubuntu 21.04
 ```
-    curl -s https://raw.githubusercontent.com/sid093/whatsviz/master/deploy.sh | bash /dev/stdin 
+    curl -s https://raw.githubusercontent.com/sidxdev/whatsviz/main/deploy.sh | bash
 ```
 ---
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=485d7ff8969d&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
