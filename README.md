@@ -1,5 +1,5 @@
 # dataviz-whatsapp
-Node application which uses R based Data Visualization tool for WhatsApp chat
+Node application which uses Python based Data Visualization tool for WhatsApp chat
 
 Usage -
 ```
