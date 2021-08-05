@@ -33,7 +33,7 @@ for line in lines:
             "text": matches[0][3]
         }
         parsed_input.append(converted_line)
-    else:
+    elif(len(parsed_input) > 0):
         parsed_input[len(parsed_input) - 1]['text'] += line
 
 df = pd.DataFrame(parsed_input)
