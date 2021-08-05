@@ -1,3 +1,5 @@
+from collections import OrderedDict
+from datetime import date, datetime, time, timedelta
 import sys
 import json
 import os
@@ -43,14 +45,39 @@ summary = df.groupby(['sender']).size().reset_index()
 summary.columns = ['sender', 'count']
 output["summary"] = json.loads(summary.to_json(orient='records'))
 
-df['year'] = pd.DatetimeIndex(df['date']).year
-df['month'] = pd.DatetimeIndex(df['date']).month
-timeline = df.groupby(['sender', 'year', 'month']).size().reset_index()
-timeline.columns = ['sender', 'year', 'month', 'count']
-output["timeline"] = json.loads(timeline.to_json(orient='records'))
+startDate = min(df['date'].dt.strftime('%Y-%m-%d'))
+endDate = max(df['date'].dt.strftime('%Y-%m-%d'))
+dates = [startDate, endDate]
+start, end = [datetime.strptime(_, "%Y-%m-%d") for _ in dates]
+timelineLabels = list(OrderedDict(((start + timedelta(_)).strftime(r"%b-%y"), None)
+                      for _ in range((end - start).days)).keys())
+timelineSenderData = df['sender'].unique().tolist()
+timelineData = []
 
+df['yearmonth'] = df['date'].dt.strftime('%b-%y')
+timeline = df.groupby(['sender', 'yearmonth']).size().reset_index()
+timeline.columns = ['sender', 'yearmonth', 'count']
+
+for sender in timelineSenderData:
+    counts = []
+
+    for period in timelineLabels:
+        found = timeline[(timeline['sender'] == sender) &
+                         (timeline['yearmonth'] == period)]
+        if found.empty:
+            counts.append(0)
+        else:
+            counts.append(int(found.iloc[0]['count']))
+
+    timelineData.append({"sender": sender, "counts": counts})
+
+
+output["timeline"] = {
+    "labels": timelineLabels,
+    "data": timelineData
+}
 out_file = open(file_out, "w")
 json.dump(output, out_file, indent=4, sort_keys=False)
 out_file.close()
 
-os.remove(file_in)
+# os.remove(file_in)
