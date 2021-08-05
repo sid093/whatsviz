@@ -35,16 +35,22 @@ for line in lines:
         parsed_input[len(parsed_input) - 1]['text'] += line
 
 df = pd.DataFrame(parsed_input)
+df['date'] = pd.to_datetime(df['date'], format='%d/%m/%y')
+
+output = {}
+
 summary = df.groupby(['sender']).size().reset_index()
 summary.columns = ['sender', 'count']
-print(summary)
+output["summary"] = json.loads(summary.to_json(orient='records'))
 
-output = {
-    "summary": json.loads(summary.to_json(orient='records'))
-}
+df['year'] = pd.DatetimeIndex(df['date']).year
+df['month'] = pd.DatetimeIndex(df['date']).month
+timeline = df.groupby(['sender', 'year', 'month']).size().reset_index()
+timeline.columns = ['sender', 'year', 'month', 'count']
+output["timeline"] = json.loads(timeline.to_json(orient='records'))
 
 out_file = open(file_out, "w")
 json.dump(output, out_file, indent=4, sort_keys=False)
 out_file.close()
 
-# os.remove(file_in)
+os.remove(file_in)
