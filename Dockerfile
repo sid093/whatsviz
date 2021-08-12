@@ -1,7 +1,7 @@
 FROM nikolaik/python-nodejs:python3.8-nodejs16-slim
 
 # Python dependencies
-RUN pip install --no-cache --upgrade pandas
+RUN pip install --no-cache --upgrade pandas nltk
 
 # Node running port
 ENV PORT=8000
