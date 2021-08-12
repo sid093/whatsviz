@@ -1,7 +1,9 @@
 FROM nikolaik/python-nodejs:python3.8-nodejs16-slim
 
 # Python dependencies
-RUN pip install --no-cache --upgrade pandas nltk
+RUN python3 -m pip install --upgrade pip
+RUN pip install --no-cache pandas nltk
+RUN python3 -c "import nltk; nltk.download('stopwords')"
 
 # Node running port
 ENV PORT=8000

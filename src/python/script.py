@@ -6,8 +6,6 @@ import os
 import re
 import pandas as pd
 import argparse
-import nltk
-nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 
