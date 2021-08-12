@@ -90,8 +90,9 @@ frequency = df['text'].str.split(
     expand=True).stack().value_counts().to_frame().reset_index()
 frequency.columns = ['text', 'count']
 frequency_filter = frequency['text'].apply(
-    lambda x: ((len(str(x)) < 20) & (len(str(x)) > 2) & (x not in stop_words))) & frequency['value'] > 10
+    lambda x: ((len(str(x)) < 20) & (len(str(x)) > 2) & (x not in stop_words)))
 frequency = frequency[frequency_filter]
+frequency = frequency[frequency['value'] > 10]
 frequency['text'] = frequency['text'].str.lower()
 output["frequency"] = json.loads(frequency.to_json(orient='records'))
 ###################################################################################
