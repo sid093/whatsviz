@@ -1,0 +1,12 @@
+image:
+  file: Dockerfile
+
+ports:
+  - port: 8000
+    onOpen: open-browser
+
+tasks:
+  - init: |
+      docker build . -t whatsviz
+    command: |
+      docker run -p 8000:8000 -d --restart unless-stopped --name whatsviz whatsviz
