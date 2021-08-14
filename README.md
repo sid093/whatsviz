@@ -1,7 +1,7 @@
 # dataviz-whatsapp
 Node application which uses Python based Data Visualization tool for WhatsApp chat
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/sidxdev/whatsviz)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sidxdev/whatsviz)
 
 Usage -
 ```
