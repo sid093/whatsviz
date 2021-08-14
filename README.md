@@ -1,6 +1,8 @@
 # dataviz-whatsapp
 Node application which uses Python based Data Visualization tool for WhatsApp chat
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/sidxdev/whatsviz)
+
 Usage -
 ```
     docker build . -t whatsviz
