@@ -3,7 +3,11 @@ ports:
     onOpen: open-browser
 
 tasks:
-  - init: |
+  - prebuild: |
       docker build . -t whatsviz
     command: |
       docker run -p 8000:8000 -d --restart unless-stopped --name whatsviz whatsviz
+
+github:
+  prebuilds:
+    master: true
