@@ -11,7 +11,7 @@ const chat = require('./routes/chat');
 const app = express();
 app.use(cors());
 
-app.all('/', (req, res) => res.sendStatus(200));
+app.use(express.static('public'));
 app.use('/chat', chat);
 
 app.listen(PORT);

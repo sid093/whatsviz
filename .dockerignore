@@ -1,15 +1,15 @@
-# R files
-.RData
-.Rhistory
-
 # Node files
 node_modules
 npm-debug.log
+
+# React files
+build
 
 # Project files
 data/input/*
 data/output/*
 test/*.txt
+*.env
 
 # OS files
 .DS_Store

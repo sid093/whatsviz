@@ -13,8 +13,3 @@ Just python script, place chat.txt in test folder -
 ```
     python src/python/script.py test/chat.txt test/out.txt --no-delete
 ```
-
-One-Click run in Ubuntu 21.04
-```
-    curl -s https://raw.githubusercontent.com/sidxdev/whatsviz/main/deploy.sh | bash
-```

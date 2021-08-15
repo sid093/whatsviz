@@ -93,6 +93,7 @@ frequency_filter = frequency['text'].apply(
     lambda x: ((len(str(x)) < 20) & (len(str(x)) > 2) & (x not in stop_words)))
 frequency = frequency[frequency_filter]
 frequency['text'] = frequency['text'].str.lower()
+frequency = frequency.head(100)
 output["frequency"] = json.loads(frequency.to_json(orient='records'))
 ###################################################################################
 
