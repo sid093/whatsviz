@@ -5,8 +5,10 @@ ports:
 tasks:
   - init: |
       docker build . -t whatsviz
-    command: |
+  - command: |
       docker run -p 8000:8000 -d --restart unless-stopped --name whatsviz whatsviz
 
 github:
-  prebuilds: true
+  prebuilds:
+    master: true
+    branches: false
