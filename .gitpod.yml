@@ -12,3 +12,7 @@ github:
   prebuilds:
     master: true
     branches: false
+
+vscode:
+  extensions:
+    - "ms-azuretools.vscode-docker"
