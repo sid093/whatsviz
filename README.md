@@ -1,5 +1,5 @@
-# dataviz-whatsapp
-Node application which uses Python based Data Visualization tool for WhatsApp chat
+# Whatsviz
+React application to visualize WhatsApp chats. Data processing done using Python.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sidxdev/whatsviz)
 
