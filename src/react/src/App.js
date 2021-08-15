@@ -5,19 +5,15 @@ import {
   Route
 } from "react-router-dom";
 
-import Home from "./components/screens/Home";
-import HelloWorld from "./components/helloworld/HelloWorld";
-import Whatsviz from "./components/whatsviz/Whatsviz";
-import { appsList } from "./config";
+import Whatsviz from "./components/Whatsviz";
+
 
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path={appsList.route("Hello World")} children={<HelloWorld />} />
-        <Route path={appsList.route("Whatsviz")} children={<Whatsviz />} />
-        <Route path="/" children={<Home />} />
+        <Route path="/:id?" children={<Whatsviz />} />
       </Switch>
     </Router>
   );

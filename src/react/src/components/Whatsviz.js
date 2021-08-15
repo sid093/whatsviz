@@ -7,9 +7,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Summary from "./charts/Summary";
 import Timeline from "./charts/Timeline";
-import { appsList } from '../../config';
 import jsPDF from "jspdf";
-const { server, path } = appsList.get("Whatsviz");
+const server = process.env.REACT_APP_WHATSVIZ_SERVER || ''
 
 
 class Whatsviz extends React.Component {
@@ -69,7 +68,7 @@ class Whatsviz extends React.Component {
     this.setState({ fileUploading: true })
     try {
       let upload = await this.state.server.post("/chat", formData);
-      this.props.history.push(`${path}/${upload.data}`);
+      this.props.history.push(`/${upload.data}`);
       this.loadData(upload.data)
       this.setState({ id: upload.data, file, fileUploading: false });
     } catch (e) {
@@ -102,7 +101,7 @@ class Whatsviz extends React.Component {
     return <Container style={{ height: '100vh', marginTop: '5vh' }}>
       <Header size="huge">
         <Header.Content>
-          <a href={`#${path}`} onClick={this.onClickHeader.bind(this)} style={{ textDecoration: 'none', color: 'green' }}>Whatsviz</a>
+          <a href="#" onClick={this.onClickHeader.bind(this)} style={{ textDecoration: 'none', color: 'green' }}>Whatsviz</a>
           <Header.Subheader style={{ color: "grey" }}>
             server status <Icon name={this.state.ping ? "check" : "close"} color={this.state.ping ? "green" : "red"} />
           </Header.Subheader>
