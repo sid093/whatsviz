@@ -86,6 +86,8 @@ output["timeline"] = {
 
 
 # Token Frequency
+filter_out = ['<Media omitted>']
+df = df[~df['text'].isin(filter_out)]
 frequency = df['text'].str.split(
     expand=True).stack().value_counts().to_frame().reset_index()
 frequency.columns = ['text', 'count']

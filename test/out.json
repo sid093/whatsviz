@@ -1,0 +1,483 @@
+{
+    "summary": [
+        {
+            "sender": "+91 81786 22425",
+            "count": 79
+        },
+        {
+            "sender": "Gangesh Rajput",
+            "count": 314
+        },
+        {
+            "sender": "Raghav Triguna",
+            "count": 175
+        },
+        {
+            "sender": "Siddharth",
+            "count": 372
+        }
+    ],
+    "timeline": {
+        "labels": [
+            "Jan-21",
+            "Feb-21",
+            "Mar-21",
+            "Apr-21",
+            "May-21",
+            "Jun-21",
+            "Jul-21"
+        ],
+        "data": [
+            {
+                "sender": "+91 81786 22425",
+                "counts": [
+                    3,
+                    12,
+                    17,
+                    38,
+                    0,
+                    0,
+                    9
+                ]
+            },
+            {
+                "sender": "Siddharth",
+                "counts": [
+                    21,
+                    112,
+                    117,
+                    100,
+                    0,
+                    0,
+                    22
+                ]
+            },
+            {
+                "sender": "Gangesh Rajput",
+                "counts": [
+                    49,
+                    69,
+                    89,
+                    83,
+                    0,
+                    0,
+                    24
+                ]
+            },
+            {
+                "sender": "Raghav Triguna",
+                "counts": [
+                    35,
+                    43,
+                    48,
+                    28,
+                    0,
+                    0,
+                    21
+                ]
+            }
+        ]
+    },
+    "frequency": [
+        {
+            "text": "hai",
+            "count": 41
+        },
+        {
+            "text": "toh",
+            "count": 27
+        },
+        {
+            "text": "but",
+            "count": 20
+        },
+        {
+            "text": "good",
+            "count": 18
+        },
+        {
+            "text": "also",
+            "count": 18
+        },
+        {
+            "text": "yes",
+            "count": 17
+        },
+        {
+            "text": "hahaha",
+            "count": 17
+        },
+        {
+            "text": "this",
+            "count": 16
+        },
+        {
+            "text": "silver",
+            "count": 16
+        },
+        {
+            "text": "and",
+            "count": 16
+        },
+        {
+            "text": "nahi",
+            "count": 15
+        },
+        {
+            "text": "yeah",
+            "count": 15
+        },
+        {
+            "text": "i'm",
+            "count": 15
+        },
+        {
+            "text": "get",
+            "count": 15
+        },
+        {
+            "text": "like",
+            "count": 15
+        },
+        {
+            "text": "buy",
+            "count": 14
+        },
+        {
+            "text": "last",
+            "count": 14
+        },
+        {
+            "text": "know",
+            "count": 14
+        },
+        {
+            "text": "time",
+            "count": 13
+        },
+        {
+            "text": "the",
+            "count": 13
+        },
+        {
+            "text": "think",
+            "count": 13
+        },
+        {
+            "text": "bhi",
+            "count": 13
+        },
+        {
+            "text": "you",
+            "count": 13
+        },
+        {
+            "text": "year",
+            "count": 12
+        },
+        {
+            "text": "much",
+            "count": 12
+        },
+        {
+            "text": "just",
+            "count": 12
+        },
+        {
+            "text": "see",
+            "count": 12
+        },
+        {
+            "text": "it's",
+            "count": 11
+        },
+        {
+            "text": "gold",
+            "count": 10
+        },
+        {
+            "text": "main",
+            "count": 10
+        },
+        {
+            "text": "they",
+            "count": 10
+        },
+        {
+            "text": "what",
+            "count": 9
+        },
+        {
+            "text": "got",
+            "count": 9
+        },
+        {
+            "text": "need",
+            "count": 9
+        },
+        {
+            "text": "mining",
+            "count": 9
+        },
+        {
+            "text": "bhai",
+            "count": 9
+        },
+        {
+            "text": "raha",
+            "count": 9
+        },
+        {
+            "text": "bro",
+            "count": 9
+        },
+        {
+            "text": "everyone",
+            "count": 9
+        },
+        {
+            "text": "say",
+            "count": 8
+        },
+        {
+            "text": "one",
+            "count": 8
+        },
+        {
+            "text": "increase",
+            "count": 8
+        },
+        {
+            "text": "log",
+            "count": 8
+        },
+        {
+            "text": "bhai",
+            "count": 8
+        },
+        {
+            "text": "good",
+            "count": 8
+        },
+        {
+            "text": "fund",
+            "count": 8
+        },
+        {
+            "text": "@919810503699",
+            "count": 8
+        },
+        {
+            "text": "true",
+            "count": 8
+        },
+        {
+            "text": "next",
+            "count": 8
+        },
+        {
+            "text": "hai.",
+            "count": 8
+        },
+        {
+            "text": "people",
+            "count": 7
+        },
+        {
+            "text": "sab",
+            "count": 7
+        },
+        {
+            "text": "going",
+            "count": 7
+        },
+        {
+            "text": "let's",
+            "count": 7
+        },
+        {
+            "text": "raghav",
+            "count": 7
+        },
+        {
+            "text": "new",
+            "count": 7
+        },
+        {
+            "text": "day",
+            "count": 7
+        },
+        {
+            "text": "week",
+            "count": 7
+        },
+        {
+            "text": "positive",
+            "count": 7
+        },
+        {
+            "text": "yes",
+            "count": 7
+        },
+        {
+            "text": "take",
+            "count": 7
+        },
+        {
+            "text": "care",
+            "count": 7
+        },
+        {
+            "text": "kar",
+            "count": 7
+        },
+        {
+            "text": "fall",
+            "count": 7
+        },
+        {
+            "text": "less",
+            "count": 6
+        },
+        {
+            "text": "haha",
+            "count": 6
+        },
+        {
+            "text": "would",
+            "count": 6
+        },
+        {
+            "text": "someone",
+            "count": 6
+        },
+        {
+            "text": "that's",
+            "count": 6
+        },
+        {
+            "text": "lockdown",
+            "count": 6
+        },
+        {
+            "text": "cases",
+            "count": 6
+        },
+        {
+            "text": "rate",
+            "count": 6
+        },
+        {
+            "text": "tomorrow",
+            "count": 6
+        },
+        {
+            "text": "@919212100005",
+            "count": 6
+        },
+        {
+            "text": "data",
+            "count": 6
+        },
+        {
+            "text": "all",
+            "count": 6
+        },
+        {
+            "text": "hai,",
+            "count": 6
+        },
+        {
+            "text": "one",
+            "count": 6
+        },
+        {
+            "text": "sure",
+            "count": 6
+        },
+        {
+            "text": "keep",
+            "count": 6
+        },
+        {
+            "text": "not",
+            "count": 6
+        },
+        {
+            "text": "weekend",
+            "count": 6
+        },
+        {
+            "text": "maybe",
+            "count": 6
+        },
+        {
+            "text": "cash",
+            "count": 6
+        },
+        {
+            "text": "big",
+            "count": 6
+        },
+        {
+            "text": "buying",
+            "count": 6
+        },
+        {
+            "text": "take",
+            "count": 6
+        },
+        {
+            "text": "nice",
+            "count": 6
+        },
+        {
+            "text": "home",
+            "count": 5
+        },
+        {
+            "text": "cool",
+            "count": 5
+        },
+        {
+            "text": "long",
+            "count": 5
+        },
+        {
+            "text": "movies",
+            "count": 5
+        },
+        {
+            "text": "thanks",
+            "count": 5
+        },
+        {
+            "text": "back",
+            "count": 5
+        },
+        {
+            "text": "another",
+            "count": 5
+        },
+        {
+            "text": "thing",
+            "count": 5
+        },
+        {
+            "text": "i'll",
+            "count": 5
+        },
+        {
+            "text": "funds",
+            "count": 5
+        },
+        {
+            "text": "how",
+            "count": 5
+        },
+        {
+            "text": "lol",
+            "count": 5
+        }
+    ]
+}
